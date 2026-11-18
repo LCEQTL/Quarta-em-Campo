@@ -3,8 +3,8 @@
 // ============================================================
 window.CONFIG = {
   // Usuário/organização dono do repositório e nome do repositório
-  OWNER: 'SEU-USUARIO',
-  REPO: 'planner-campo',
+  OWNER: 'lceqtl',
+  REPO: 'Quarta-em-Campo',
 
   // Branch onde os registros são salvos (criado automaticamente).
   // Fica separado do site para não poluir o main nem refazer o deploy a cada registro.
