@@ -12,6 +12,6 @@
     }
   },
   "atividades": [
-    {"id":"mwmon76y0hmnm","nome":"MAXWELL MAIA","data":"2026-11-18","tipo":"Deslocamento","alvo":"Floriano","inicio":"19:18","fim":null,"km":111,"obs":""}
+    {"id":"mwmon76y0hmnm","nome":"MAXWELL MAIA","data":"2026-11-18","tipo":"Deslocamento","alvo":"Floriano","inicio":"19:18","fim":"19:18","km":111,"obs":""}
   ]
 }
