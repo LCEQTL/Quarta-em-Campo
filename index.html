@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b4f9c">
+<title>Quarta em Campo</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="topo">
+  <div class="marca">
+    <img src="logo.png" alt="" class="logo" onerror="this.remove()">
+    <span class="sep"></span>
+    <h1 id="titulo">Quarta em Campo</h1>
+  </div>
+  <div class="topo-dir">
+    <button id="status" class="status" title="Atualizar agora"><span class="dot"></span><span id="statusTxt">…</span></button>
+    <button id="btnUsuario" class="usuario"></button>
+  </div>
+</header>
+<nav class="abas">
+  <button data-aba="meu" class="ativa">Meu dia</button>
+  <button data-aba="plano">Planejar</button>
+  <button data-aba="equipe">Equipe</button>
+</nav>
+
+<main>
+  <!-- ================= MEU DIA ================= -->
+  <section id="aba-meu" class="aba">
+    <div id="atual"></div>
+
+    <div class="card" id="cardIniciar">
+      <h2>Iniciar atividade</h2>
+      <div id="tipos" class="chips"></div>
+      <input id="tipoOutro" class="hidden" placeholder="Qual atividade?" autocomplete="off">
+
+      <label for="alvo">Destino / equipe</label>
+      <div id="chipsAlvo" class="chips"></div>
+      <input id="alvo" list="listaAlvos" placeholder="Ex.: SE Picos, Agência Oeiras" autocomplete="off">
+
+      <div id="campoKm" class="hidden">
+        <label for="km">Distância (km) <small>opcional</small></label>
+        <input id="km" inputmode="decimal" placeholder="Ex.: 75" autocomplete="off">
+      </div>
+
+      <label for="obs">Observação <small>opcional</small></label>
+      <textarea id="obs" rows="2"></textarea>
+
+      <button id="btnIniciar" class="btn primario grande">▶ Iniciar agora</button>
+    </div>
+
+    <div class="card" id="cardMeuDia">
+      <div class="card-tit">
+        <h2>Meu dia <span id="meuDiaData" class="pill"></span></h2>
+        <button id="btnManual" class="btn sec">+ Registro manual</button>
+      </div>
+      <div id="meuDia"></div>
+    </div>
+  </section>
+
+  <!-- ================= PLANEJAR ================= -->
+  <section id="aba-plano" class="aba hidden">
+    <div class="card">
+      <h2>Para onde vou</h2>
+      <div class="datas">
+        <button class="btn sec" data-plano-dia="0">Hoje</button>
+        <button class="btn sec" data-plano-dia="1">Amanhã</button>
+        <input type="date" id="dataPlano">
+      </div>
+      <p id="planoLegenda" class="legenda"></p>
+      <div class="add-linha">
+        <input id="novoAlvo" list="listaAlvos" placeholder="Lugar ou equipe" autocomplete="off">
+        <button id="btnAddAlvo" class="btn primario">Adicionar</button>
+      </div>
+      <ul id="listaPlano" class="plano"></ul>
+      <div id="sugestoes"></div>
+    </div>
+  </section>
+
+  <!-- ================= EQUIPE ================= -->
+  <section id="aba-equipe" class="aba hidden">
+    <div class="card fino">
+      <div class="datas">
+        <button class="btn sec" id="eqAnt" aria-label="Dia anterior">◀</button>
+        <input type="date" id="dataEquipe">
+        <button class="btn sec" id="eqProx" aria-label="Próximo dia">▶</button>
+        <button class="btn sec" id="eqHoje">Hoje</button>
+      </div>
+      <div class="eq-acoes">
+        <span id="eqResumo" class="legenda"></span>
+        <button id="btnExportar" class="btn sec">⬇ Exportar mês</button>
+      </div>
+    </div>
+    <div id="listaEquipe"></div>
+  </section>
+</main>
+
+<datalist id="listaAlvos"></datalist>
+<datalist id="listaTipos"></datalist>
+<datalist id="listaNomes"></datalist>
+
+<div id="modal" class="modal hidden"><div class="modal-caixa" id="modalCorpo"></div></div>
+<div id="toast" class="toast"></div>
+</body>
+</html>
